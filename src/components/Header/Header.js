@@ -14,10 +14,11 @@ const Header = () => {
             <div onClick={() => setMenu(!menu)}>
                 <FaBars className='text-white font-bold text-3xl lg:hidden block'></FaBars>
             </div>
-            <div className={`lg:static rounded-lg duration-500 ease-in bg-blue-500 lg:bg-transparent absolute right-0 text-3xl font-bold text-white text-start flex flex-col lg:flex-row lg:items-center justify-evenly ${menu ? 'top-[110px]' : 'top-[-10000000000000px]'}`}>
-                <NavLink className={'mx-5 px-5 py-2 w-full hover:bg-purple-800 lg:bg-purple-500 rounded-lg'}>FAQ</NavLink>
-                <NavLink className={'mx-5 px-5 py-2 w-full hover:bg-purple-800 lg:bg-purple-500 rounded-lg'}>Courses</NavLink>
-                <NavLink className={'mx-5 px-5 py-2 w-full hover:bg-purple-800 lg:bg-purple-500 rounded-lg'}>Blog</NavLink>
+            <div className={`lg:static rounded-lg w-full lg:w-[50%] duration-500 ease-in bg-blue-500 lg:bg-transparent absolute right-0 text-3xl font-bold text-white text-start flex flex-col lg:flex-row lg:items-center justify-evenly ${menu ? 'top-[110px]' : 'top-[-10000000000000px]'}`}>
+                <NavLink to={'/'} className={'mx-5 px-5 py-2 font-bold text-xl  hover:bg-purple-800 lg:btn lg:btn-primary rounded-lg'}>Home</NavLink>
+                <NavLink className={'mx-5 px-5 py-2 font-bold text-xl  hover:bg-purple-800 lg:btn lg:btn-primary rounded-lg'}>FAQ</NavLink>
+                <NavLink to={'/course_category'} className={'mx-5 px-5 py-2 font-bold text-xl  hover:bg-purple-800 lg:btn lg:btn-primary rounded-lg'}>Courses</NavLink>
+                <NavLink className={'mx-5 px-5 py-2 font-bold text-xl  hover:bg-purple-800 lg:btn lg:btn-primary rounded-lg'}>Blog</NavLink>
             </div>
         </div>
     );
