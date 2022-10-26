@@ -3,8 +3,11 @@ import { NavLink } from 'react-router-dom';
 import logo from '../../media/easy_learning_logo-removebg-preview.png';
 import { FaBars } from 'react-icons/fa';
 import { useState } from 'react';
+import { useContext } from 'react';
+import { AuthContext } from '../../contexts/AuthProvider';
 
 const Header = () => {
+    const { user } = useContext(AuthContext);
     const [menu, setMenu] = useState(false);
     return (
         <div className="navbar bg-gradient-to-r from-sky-500 to-indigo-500 p-2">
@@ -20,6 +23,7 @@ const Header = () => {
                 <NavLink onClick={() => setMenu(false)} to={'/course_category'} className={'mx-5 px-5 py-2 font-bold text-xl lg:btn lg:btn-primary rounded-lg'}>Courses</NavLink>
                 <NavLink onClick={() => setMenu(false)} to={'/blog'} className={'mx-5 px-5 py-2 font-bold text-xl lg:btn lg:btn-primary rounded-lg'}>Blog</NavLink>
                 <NavLink onClick={() => setMenu(false)} to={'/signin'} className={'mx-5 px-5 py-2 font-bold text-xl lg:btn lg:btn-primary rounded-lg'}>Sign In</NavLink>
+                {user.displayName}
             </div>
         </div>
     );

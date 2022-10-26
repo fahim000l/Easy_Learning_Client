@@ -1,10 +1,12 @@
 import React from 'react';
 import { NavLink } from 'react-router-dom';
+import googleIcon from '../../media/google.png';
+import gitIcon from '../../media/github-octocat-logo-vector-png--896-removebg-preview.png'
 
 const SignIn = () => {
     return (
-        <div className='w-full flex flex-col justify-center items-center'>
-            <div className='border-[5px] bg-blue-200 rounded-lg w-[90%] text-start border-solid border-blue-900 lg:w-[30%] mx-auto mb-5 mt-[60%] lg:mt-[5%] lg:px-[55px] px-5 py-[37px]'>
+        <div className='w-full flex flex-col justify-center items-center pb-5'>
+            <div className='border-[5px] bg-blue-200 rounded-lg w-[90%] text-start border-solid border-blue-900 lg:w-[30%] mx-auto mb-5 mt-[60%] lg:mt-[2%] lg:px-[55px] px-5 py-[37px]'>
                 <h1 className='text-5xl text-blue-900 font-bold'>Sign In</h1>
                 <form>
                     <div className='mt-[53.97px]'>
@@ -38,11 +40,11 @@ const SignIn = () => {
             </div>
             <div className='lg:w-[30%] w-[90%]'>
                 <div className='cursor-pointer px-2 py-2 my-2 flex items-center justify-between w-[100%] rounded-lg border-[5px] bg-blue-200 text-blue-900 border-solid border-blue-900'>
-                    {/* <img className='w-[37px] h-[37px]' src={fbIcon} alt="" /> */}
-                    <p className='font-bold text-xl lg:mr-56'>Continue with facebook</p>
+                    <img className='w-[37px] h-[37px]' src={gitIcon} alt="" />
+                    <p className='font-bold text-xl lg:mr-56'>Continue with GitHub</p>
                 </div>
                 <div className='cursor-pointer px-2 py-2 my-2 flex items-center justify-between w-[100%] rounded-lg border-[5px] bg-blue-200 text-blue-900 border-solid border-blue-900'>
-                    {/* <img className='w-[37px] h-[37px]' src={googleIcon} alt="" /> */}
+                    <img className='w-[37px] h-[37px]' src={googleIcon} alt="" />
                     <p className='font-bold text-xl lg:mr-56'>Continue with google</p>
                 </div>
             </div>
