@@ -4,9 +4,9 @@ import CourseCard from './CourseCard/CourseCard';
 
 const Courses = () => {
     const selectedCategory = useLoaderData();
-    // console.log(selectedCategory);
+
     return (
-        <div className='w-[80%] grid grid-cols-3 gap-5 p-60'>
+        <div className='lg:w-[80%] w-full grid lg:grid-cols-3 grid-cols-1 gap-5 h-screen lg:p-[60px] px-2 py-10'>
             {
                 selectedCategory.map(course => <CourseCard
                     key={course._id}

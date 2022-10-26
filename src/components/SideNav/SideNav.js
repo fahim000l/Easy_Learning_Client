@@ -1,15 +1,17 @@
 import React from 'react';
 import Category from './Category/Category';
 
-const SideNav = ({ courseCategories }) => {
+const SideNav = ({ courseCategories, topNav, setTopNav }) => {
 
     return (
-        <div className='w-[20%] bg-sky-300 p-5'>
-            <h1 className='text-3xl font-bold text-white'>Select your desired course</h1>
+        <div className={`lg:w-[20%] w-full bg-sky-300 lg:static absolute p-5 pb-[100px] ${topNav ? 'top[0]' : 'top-[-2000px]'}`}>
+            <h1 className='text-3xl font-bold text-purple-500'>Click on your desired course</h1>
             {
                 courseCategories.map(courseCategory => <Category
                     key={courseCategory.id}
                     courseCategory={courseCategory}
+                    topNav={topNav}
+                    setTopNav={setTopNav}
                 ></Category>)
             }
         </div>
