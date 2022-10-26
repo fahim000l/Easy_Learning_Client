@@ -1,6 +1,7 @@
 import { createBrowserRouter } from "react-router-dom";
 import AllCourses from "../components/AllCourses/AllCourses";
 import Blog from "../components/Blog/Blog";
+import CheckOut from "../components/CheckOut/CheckOut";
 import CourseDetails from "../components/CourseDetails/CourseDetails";
 import Courses from "../components/Courses/Courses";
 import Home from "../components/Home/Home";
@@ -39,6 +40,11 @@ export const router = createBrowserRouter([
             {
                 path: '/blog',
                 element: <Blog></Blog>
+            },
+            {
+                path: '/checkout/:id',
+                element: <CheckOut></CheckOut>,
+                loader: ({ params }) => fetch(`https://assignment-10-server-coral.vercel.app/courses/${params.id}`)
             }
         ]
     },
