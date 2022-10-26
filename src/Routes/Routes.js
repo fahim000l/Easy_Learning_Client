@@ -1,4 +1,5 @@
 import { createBrowserRouter } from "react-router-dom";
+import AllCourses from "../components/AllCourses/AllCourses";
 import CourseDetails from "../components/CourseDetails/CourseDetails";
 import Courses from "../components/Courses/Courses";
 import Home from "../components/Home/Home";
@@ -17,6 +18,11 @@ export const router = createBrowserRouter([
                 path: '/course_category',
                 element: <CoursesLayout></CoursesLayout>,
                 children: [
+                    {
+                        path: '/course_category',
+                        element: <AllCourses></AllCourses>,
+                        loader: () => fetch(`https://assignment-10-server-coral.vercel.app/courses`)
+                    },
                     {
                         path: '/course_category/:id',
                         element: <Courses></Courses>,
