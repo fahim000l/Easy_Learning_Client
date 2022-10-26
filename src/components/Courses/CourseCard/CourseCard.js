@@ -3,7 +3,7 @@ import { FaEye } from 'react-icons/fa';
 import { NavLink } from 'react-router-dom';
 
 const CourseCard = ({ course }) => {
-    const { course_name, rating, thumbnail_url, total_view, author } = course
+    const { _id, course_name, rating, thumbnail_url, total_view, author } = course
     return (
         <div className='bg-blue-200 font-bold rounded-lg w-full'>
             <div className='lg:flex items-center justify-between'>
@@ -28,7 +28,7 @@ const CourseCard = ({ course }) => {
                     <FaEye />
                     <p className='mx-2'>{total_view}</p>
                 </div>
-                <NavLink className={'btn btn-primary'}>Show Details</NavLink>
+                <NavLink to={`/course_category/course/${_id}`} className={'btn btn-primary'}>Show Details</NavLink>
             </div>
         </div>
     );
