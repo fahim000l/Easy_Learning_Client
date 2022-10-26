@@ -5,6 +5,7 @@ import gitIcon from '../../media/github-octocat-logo-vector-png--896-removebg-pr
 import { useContext } from 'react';
 import { AuthContext } from '../../contexts/AuthProvider';
 import { useState } from 'react';
+import Swal from 'sweetalert2';
 
 
 const SignIn = () => {
@@ -25,6 +26,12 @@ const SignIn = () => {
                 const user = result.user;
                 console.log(user);
                 form.reset();
+                if (!user.emailVerified) {
+                    Swal.fire(
+                        'Your account is not verifird',
+                        'Check your email to verify the account'
+                    )
+                }
             })
             .catch(error => {
                 console.error(error);
@@ -33,13 +40,21 @@ const SignIn = () => {
 
     }
 
-    const handleEmail = () => {
-
+    const handleEmail = (event) => {
+        setUserEmail(event.target.value);
     }
 
     const handleReset = () => {
-        forgetPassword()
-            .then(() => { })
+
+        if (!userEmail) {
+            Swal.fire('Please provide your emil, to reset password');
+            return;
+        }
+
+        forgetPassword(userEmail)
+            .then(() => {
+                Swal.fire('Check your email to reset password');
+            })
             .catch(error => {
                 console.error(error);
             })
@@ -52,11 +67,11 @@ const SignIn = () => {
                 <form onSubmit={handleSubmit}>
                     <div className='mt-[53.97px]'>
                         <label className='block font-bold text-blue-900' htmlFor="email">Email</label>
-                        <input onBlur={handleEmail} className='px-3 py-2 w-full rounded-lg border-b-[5px] border-solid border-blue-900' type="email" name="email" id="" />
+                        <input required onBlur={handleEmail} className='px-3 py-2 w-full rounded-lg border-b-[5px] border-solid border-blue-900' type="email" name="email" id="" />
                     </div>
                     <div className='mt-[50px]'>
                         <label className='block font-bold text-blue-900' htmlFor="password">Password</label>
-                        <input className='px-3 py-2 w-full rounded-lg border-b-[5px] border-solid border-blue-900' type="password" name="password" id="" />
+                        <input required className='px-3 py-2 w-full rounded-lg border-b-[5px] border-solid border-blue-900' type="password" name="password" id="" />
                     </div>
                     <div className='mt-[20px]'>
                         <p className='text-red-500 font-bold'>
