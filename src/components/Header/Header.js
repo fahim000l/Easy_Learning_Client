@@ -15,10 +15,11 @@ const Header = () => {
                 <FaBars className='text-white font-bold text-3xl lg:hidden block'></FaBars>
             </div>
             <div className={`lg:static rounded-lg w-full lg:w-[50%] duration-500 ease-in bg-blue-500 lg:bg-transparent absolute right-0 text-3xl font-bold text-white text-start flex flex-col lg:flex-row lg:items-center justify-evenly ${menu ? 'top-[110px]' : 'top-[-10000000000000px]'}`}>
-                <NavLink onClick={() => setMenu(false)} to={'/'} className={'mx-5 px-5 py-2 font-bold text-xl  hover:bg-purple-800 lg:btn lg:btn-primary rounded-lg'}>Home</NavLink>
-                <NavLink onClick={() => setMenu(false)} className={'mx-5 px-5 py-2 font-bold text-xl  hover:bg-purple-800 lg:btn lg:btn-primary rounded-lg'}>FAQ</NavLink>
-                <NavLink onClick={() => setMenu(false)} to={'/course_category'} className={'mx-5 px-5 py-2 font-bold text-xl  hover:bg-purple-800 lg:btn lg:btn-primary rounded-lg'}>Courses</NavLink>
-                <NavLink onClick={() => setMenu(false)} to={'/blog'} className={'mx-5 px-5 py-2 font-bold text-xl  hover:bg-purple-800 lg:btn lg:btn-primary rounded-lg'}>Blog</NavLink>
+                <NavLink onClick={() => setMenu(false)} to={'/'} className={'mx-5 px-5 py-2 font-bold text-xl lg:btn lg:btn-primary rounded-lg'}>Home</NavLink>
+                <NavLink onClick={() => setMenu(false)} className={'mx-5 px-5 py-2 font-bold text-xl lg:btn lg:btn-primary rounded-lg'}>FAQ</NavLink>
+                <NavLink onClick={() => setMenu(false)} to={'/course_category'} className={'mx-5 px-5 py-2 font-bold text-xl lg:btn lg:btn-primary rounded-lg'}>Courses</NavLink>
+                <NavLink onClick={() => setMenu(false)} to={'/blog'} className={'mx-5 px-5 py-2 font-bold text-xl lg:btn lg:btn-primary rounded-lg'}>Blog</NavLink>
+                <NavLink onClick={() => setMenu(false)} to={'/signin'} className={'mx-5 px-5 py-2 font-bold text-xl lg:btn lg:btn-primary rounded-lg'}>Sign In</NavLink>
             </div>
         </div>
     );

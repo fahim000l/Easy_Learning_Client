@@ -5,6 +5,8 @@ import CheckOut from "../components/CheckOut/CheckOut";
 import CourseDetails from "../components/CourseDetails/CourseDetails";
 import Courses from "../components/Courses/Courses";
 import Home from "../components/Home/Home";
+import SignIn from "../components/SignIn/SignIn";
+import SignUp from "../components/SignUp/SignUp";
 import CoursesLayout from "../LayOut/CoursesLayOut";
 import Main from "../LayOut/Main";
 export const router = createBrowserRouter([
@@ -45,6 +47,14 @@ export const router = createBrowserRouter([
                 path: '/checkout/:id',
                 element: <CheckOut></CheckOut>,
                 loader: ({ params }) => fetch(`https://assignment-10-server-coral.vercel.app/courses/${params.id}`)
+            },
+            {
+                path: '/signin',
+                element: <SignIn></SignIn>
+            },
+            {
+                path: '/signup',
+                element: <SignUp></SignUp>
             }
         ]
     },

@@ -1,4 +1,5 @@
 import React from 'react';
+import { NavLink } from 'react-router-dom';
 import bannerImage from '../../media/banner_image.jfif'
 
 const Home = () => {
@@ -12,7 +13,7 @@ const Home = () => {
                 </p>
                 <p className='text-start lg:text-2xl'>All These courses will help you to gain knowledge about science and engineering knowledge</p>
                 <div className="card-actions justify-end">
-                    <button className="btn btn-primary">Log In</button>
+                    <NavLink to={'signup'} className="btn btn-primary">Get Started</NavLink>
                 </div>
             </div>
         </div>
