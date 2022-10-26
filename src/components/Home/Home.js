@@ -4,7 +4,7 @@ import bannerImage from '../../media/banner_image.jfif'
 
 const Home = () => {
     return (
-        <div className="mt-[50%] h-full lg:mt-[10%] mb-[20%] lg:mb-0 w-[90%] mx-auto card lg:card-side bg-base-100 shadow-xl">
+        <div className="mt-[80%] h-full lg:mt-[10%] mb-[20%] lg:mb-0 w-[90%] mx-auto card lg:card-side bg-base-100 shadow-xl">
             <figure className='w-full'><img className='w-full' src={bannerImage} alt="Album" /></figure>
             <div className="card-body">
                 <h2 className="card-title">About Us!</h2>

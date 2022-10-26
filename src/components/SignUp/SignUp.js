@@ -6,7 +6,7 @@ import Swal from 'sweetalert2';
 import { AuthContext } from '../../contexts/AuthProvider';
 
 const SignUp = () => {
-    const { createUser, emailVerification } = useContext(AuthContext);
+    const { createUser, emailVerification, setProfile } = useContext(AuthContext);
     const [accepted, setAccepted] = useState(false);
     const [error, setError] = useState('');
 
@@ -22,6 +22,7 @@ const SignUp = () => {
         const conditions = form.conditions.checked;
         console.log(email, password, confirm, name, photoUrl, conditions);
 
+
         if (password !== confirm) {
             setError('Password did not matched');
             return;
@@ -34,6 +35,7 @@ const SignUp = () => {
         createUser(email, password)
             .then(result => {
                 const user = result.user;
+                profileUpdate(name, photoUrl);
                 console.log(user);
                 verifyEmail();
                 Swal.fire('Your account has been created.',
@@ -64,6 +66,20 @@ const SignUp = () => {
         }
     }
 
+    const profileUpdate = (name, photoUrl) => {
+
+        const profile = {
+            displayName: name,
+            photoURL: photoUrl
+        };
+
+        setProfile(profile)
+            .then(() => { })
+            .catch(error => {
+                console.error(error);
+            });
+    }
+
     return (
         <div className='w-full flex flex-col justify-center items-center'>
             <div className='border-[5px] bg-blue-200 rounded-lg text-start border-solid border-blue-900 lg:w-[50%] w-[90%] mx-auto mb-5 mt-[60%] lg:mt-[5%] lg:px-[55px] px-5 py-[37px]'>
@@ -80,22 +96,22 @@ const SignUp = () => {
                                 <input className='px-3 py-2 w-full border-b-[5px] rounded-lg border-solid border-blue-900' type="text" name="photoUrl" id="" />
                             </div>
                             <div className='mt-[20px]'>
-                                <input onClick={handleCondition} type="checkbox" name="conditions" id="" />
+                                <input required onClick={handleCondition} type="checkbox" name="conditions" id="" />
                                 <label className='mx-2 text-blue-900 font-bold' htmlFor="conditions">Accept terms & conditions</label>
                             </div>
                         </div>
                         <div className='lg:mx-5 mx-0 w-full'>
                             <div className='mt-[15px]'>
                                 <label className='block font-bold text-blue-900' htmlFor="email">Email</label>
-                                <input className='px-3 py-2 w-full border-b-[5px] rounded-lg border-solid border-blue-900' type="email" name="email" id="" />
+                                <input required className='px-3 py-2 w-full border-b-[5px] rounded-lg border-solid border-blue-900' type="email" name="email" id="" />
                             </div>
                             <div className='mt-[15px]'>
                                 <label className='block font-bold text-blue-900' htmlFor="password">Password</label>
-                                <input className='px-3 py-2 w-full border-b-[5px] rounded-lg border-solid border-blue-900' type="password" name="password" id="" />
+                                <input required className='px-3 py-2 w-full border-b-[5px] rounded-lg border-solid border-blue-900' type="password" name="password" id="" />
                             </div>
                             <div className='mt-[15px]'>
                                 <label className='block font-bold text-blue-900' htmlFor="Comfirm">Confirm Password</label>
-                                <input className='px-3 py-2 w-full border-b-[5px] rounded-lg border-solid border-blue-900' type="password" name="confirm" id="" />
+                                <input required className='px-3 py-2 w-full border-b-[5px] rounded-lg border-solid border-blue-900' type="password" name="confirm" id="" />
                             </div>
                         </div>
                     </div>

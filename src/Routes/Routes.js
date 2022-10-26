@@ -9,6 +9,7 @@ import SignIn from "../components/SignIn/SignIn";
 import SignUp from "../components/SignUp/SignUp";
 import CoursesLayout from "../LayOut/CoursesLayOut";
 import Main from "../LayOut/Main";
+import PrivateRoute from "./PrivateRoute";
 export const router = createBrowserRouter([
     {
         path: '/',
@@ -45,7 +46,7 @@ export const router = createBrowserRouter([
             },
             {
                 path: '/checkout/:id',
-                element: <CheckOut></CheckOut>,
+                element: <PrivateRoute><CheckOut></CheckOut></PrivateRoute>,
                 loader: ({ params }) => fetch(`https://assignment-10-server-coral.vercel.app/courses/${params.id}`)
             },
             {
