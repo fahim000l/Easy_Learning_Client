@@ -3,7 +3,7 @@ import { Hero } from 'react-daisyui';
 
 const Blog = () => {
     return (
-        <div className='grid lg:grid-cols-2 grid-cols-1 gap-5 w-[90%] mx-auto lg:p-10 py-10 lg:py-0'>
+        <div className='grid lg:grid-cols-2 grid-cols-1 gap-5 w-[90%] mx-auto lg:p-10 py-10 lg:py-0 lg:mt-[90px] mb-[90px] mt-[200px]'>
             <Hero className='bg-sky-200 w-full rounded-lg p-5'>
                 <Hero.Overlay className="bg-opacity-60" />
                 <Hero.Content className="text-center">

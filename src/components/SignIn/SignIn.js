@@ -9,7 +9,7 @@ import Swal from 'sweetalert2';
 
 
 const SignIn = () => {
-    const { signIn, forgetPassword, emailVerification, googleSignIn } = useContext(AuthContext);
+    const { signIn, forgetPassword, emailVerification, googleSignIn, gitSignIn } = useContext(AuthContext);
     const [error, setError] = useState('');
     const [userEmail, setUserEmail] = useState('');
     const location = useLocation();
@@ -83,6 +83,18 @@ const SignIn = () => {
             .catch(error => {
                 console.error(error);
             });
+    };
+
+    const handleGitSignIn = () => {
+        gitSignIn()
+            .then(result => {
+                const user = result.user;
+                console.log(user);
+                navigate(from, { replace: true });
+            })
+            .catch(error => {
+                console.error(error);
+            });
     }
 
     return (
@@ -120,7 +132,7 @@ const SignIn = () => {
                 <hr className='border-[3px] rounded-lg border-solid border-blue-900 w-full' />
             </div>
             <div className='lg:w-[30%] w-[90%]'>
-                <div className='cursor-pointer px-2 py-2 my-2 flex items-center justify-between w-[100%] rounded-lg border-[5px] bg-blue-200 text-blue-900 border-solid border-blue-900'>
+                <div onClick={handleGitSignIn} className='cursor-pointer px-2 py-2 my-2 flex items-center justify-between w-[100%] rounded-lg border-[5px] bg-blue-200 text-blue-900 border-solid border-blue-900'>
                     <img className='w-[37px] h-[37px]' src={gitIcon} alt="" />
                     <p className='font-bold text-xl lg:mr-56'>Continue with GitHub</p>
                 </div>
