@@ -1,14 +1,16 @@
 import React from 'react';
 import { NavLink } from 'react-router-dom';
 import logo from '../../media/easy_learning_logo-removebg-preview.png';
-import { FaBars, FaSignOutAlt, FaSignInAlt, FaUserAlt } from 'react-icons/fa';
+import { FaBars, FaSignOutAlt, FaSignInAlt, FaUserAlt, FaToggleOn, FaToggleOff } from 'react-icons/fa';
 import { useState } from 'react';
 import { useContext } from 'react';
 import { AuthContext } from '../../contexts/AuthProvider';
+import { UtilityContext } from '../../contexts/UtilityProvider';
 
 
 const Header = () => {
     const { user, logOut } = useContext(AuthContext);
+    const { mode, setMode } = useContext(UtilityContext);
     const [menu, setMenu] = useState(false);
     return (
         <div className="navbar bg-gradient-to-r from-sky-500 to-indigo-500 p-2">
@@ -45,9 +47,14 @@ const Header = () => {
                         <NavLink onClick={() => setMenu(false)} to={'/signin'} className={'mx-5 px-5 py-2 font-bold text-xl lg:btn lg:btn-success rounded-lg'}>Sign In <FaSignInAlt className='ml-5' /></NavLink>
 
                 }
-
-
-                {/* {user.displayName} */}
+                <div onClick={() => setMode(!mode)} className="cursor-pointer">
+                    {
+                        mode ?
+                            <FaToggleOn />
+                            :
+                            <FaToggleOff />
+                    }
+                </div>
             </div>
         </div>
     );
