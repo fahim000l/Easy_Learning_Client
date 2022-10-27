@@ -1,12 +1,14 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import { useState } from 'react';
 import { FaEye } from 'react-icons/fa';
 import { useLoaderData } from 'react-router-dom';
 import { FaWindowClose } from 'react-icons/fa';
+import { UtilityContext } from '../../contexts/UtilityProvider';
 
 const CheckOut = () => {
     const checkoutCourse = useLoaderData();
     const { course_name, rating, thumbnail_url, total_view, author } = checkoutCourse;
+    const { mode } = useContext(UtilityContext);
     const [rmv, setRmv] = useState(false);
 
     if (rmv) {
@@ -15,7 +17,7 @@ const CheckOut = () => {
     else {
 
         return (
-            <div className={`bg-blue-200 font-bold rounded-lg my-52 w-[90%] lg:w-[25%] mx-auto ${rmv ? 'hidden' : 'block'}`}>
+            <div className={`${mode ? 'bg-blue-200' : 'bg-gray-900 text-white'} font-bold rounded-lg my-52 w-[90%] lg:w-[25%] mx-auto ${rmv ? 'hidden' : 'block'}`}>
                 <div className='lg:flex items-center justify-between'>
                     <div className='flex items-center justify-center p-5'>
                         <img className='w-[60px] h-[60px] rounded-full' src={author.img} alt="" />

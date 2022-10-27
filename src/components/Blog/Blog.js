@@ -1,10 +1,14 @@
 import React from 'react';
+import { useContext } from 'react';
 import { Hero } from 'react-daisyui';
+import { UtilityContext } from '../../contexts/UtilityProvider';
 
 const Blog = () => {
+
+    const { mode } = useContext(UtilityContext);
     return (
         <div className='grid lg:grid-cols-2 grid-cols-1 gap-5 w-[90%] mx-auto lg:p-10 py-10 lg:py-0 lg:mt-[90px] mb-[90px] mt-[200px]'>
-            <Hero className='bg-sky-200 w-full rounded-lg p-5'>
+            <Hero className={`${mode ? 'bg-sky-200 text-black' : 'bg-gray-900 text-white'} w-full rounded-lg p-5`}>
                 <Hero.Overlay className="bg-opacity-60" />
                 <Hero.Content className="text-center">
                     <div>
@@ -23,7 +27,7 @@ const Blog = () => {
                     </div>
                 </Hero.Content>
             </Hero>
-            <Hero className='bg-sky-200 w-full rounded-lg p-5'>
+            <Hero className={`${mode ? 'bg-sky-200 text-black' : 'bg-gray-900 text-white'} w-full rounded-lg p-5`}>
                 <Hero.Overlay className="bg-opacity-60" />
                 <Hero.Content className="text-center">
                     <div>
@@ -68,7 +72,7 @@ const Blog = () => {
                     </div>
                 </Hero.Content>
             </Hero>
-            <Hero className='bg-sky-200 w-full rounded-lg p-5'>
+            <Hero className={`${mode ? 'bg-sky-200 text-black' : 'bg-gray-900 text-white'} w-full rounded-lg p-5`}>
                 <Hero.Overlay className="bg-opacity-60" />
                 <Hero.Content className="text-center">
                     <div>
@@ -95,7 +99,7 @@ const Blog = () => {
                     </div>
                 </Hero.Content>
             </Hero>
-            <Hero className='bg-sky-200 w-full rounded-lg p-5'>
+            <Hero className={`${mode ? 'bg-sky-200 text-black' : 'bg-gray-900 text-white'} w-full rounded-lg p-5`}>
                 <Hero.Overlay className="bg-opacity-60" />
                 <Hero.Content className="text-center">
                     <div>

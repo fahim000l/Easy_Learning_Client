@@ -1,5 +1,5 @@
 import React from 'react';
-import { createUserWithEmailAndPassword, getAuth, GithubAuthProvider, GoogleAuthProvider, onAuthStateChanged, sendEmailVerification, sendPasswordResetEmail, signInWithEmailAndPassword, signInWithPopup, signOut, updateProfile } from 'firebase/auth';
+import { createUserWithEmailAndPassword, getAuth, GithubAuthProvider, GoogleAuthProvider, onAuthStateChanged, sendPasswordResetEmail, signInWithEmailAndPassword, signInWithPopup, signOut, updateProfile } from 'firebase/auth';
 import { createContext } from 'react';
 import app from '../firebase/firebase.init';
 import { useState } from 'react';
@@ -19,10 +19,10 @@ const AuthProvider = ({ children }) => {
         setLoader(true);
         return createUserWithEmailAndPassword(auth, email, password);
     };
-    const emailVerification = () => {
-        setLoader(true);
-        return sendEmailVerification(auth.currentUser);
-    };
+    // const emailVerification = () => {
+    //     setLoader(true);
+    //     return sendEmailVerification(auth.currentUser);
+    // };
     const setProfile = (profile) => {
         setLoader(true);
         return updateProfile(auth.currentUser, profile);
@@ -40,9 +40,11 @@ const AuthProvider = ({ children }) => {
         return signOut(auth);
     };
     const googleSignIn = () => {
+        setLoader(true);
         return signInWithPopup(auth, googleProvider);
     };
     const gitSignIn = () => {
+        setLoader(true);
         return signInWithPopup(auth, gitProvider);
     }
 
@@ -50,29 +52,28 @@ const AuthProvider = ({ children }) => {
 
     useEffect(() => {
         const unsubscribe = onAuthStateChanged(auth, currentUser => {
-            if (currentUser === null || currentUser.emailVerified) {
-                setUser(currentUser);
-            }
-
             setLoader(false);
+            setUser(currentUser);
+
         });
 
         return () => {
             unsubscribe();
         }
-    }, []);
+    }, [user]);
 
     const authInfo = {
         user,
         loader,
         createUser,
-        emailVerification,
+        // emailVerification,
         signIn,
         forgetPassword,
         setProfile,
         logOut,
         googleSignIn,
-        gitSignIn
+        gitSignIn,
+        setUser
     };
     return (
         <AuthContext.Provider value={authInfo}>
