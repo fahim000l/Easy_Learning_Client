@@ -1,3 +1,34 @@
+Project Name : Firebase Authentication 
+Project Topic : Learning website
+Live website Link : "https://easy-learning-1c86d.web.app"
+
+
+Functionalities of this react Application : 
+
+.This project contains frontend and backend.
+. In frontend I have used React Js.
+.In backend I have userd express Js.
+.This application contains email & password,  google and github signIn mathod.
+.It will auto rerender the page after signup.
+.In courses route , there are many courses based on the categories.
+.Every course has a detail route , there user can have the whole course details into pdf.
+then there is a link for checkout page , which is a private route.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).

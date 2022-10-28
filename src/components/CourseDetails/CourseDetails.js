@@ -38,7 +38,7 @@ const CourseDetails = () => {
                     <div className='flex justify-center items-center'>
                         <h1 className='lg:text-9xl text-3xl font-bold my-5'>{course_name}</h1>
                     </div>
-                    <p className='text-start' style={{ width: 500, height: 500 }} ref={ref}>{details}</p>
+                    <p className='text-start' ref={ref}>{details}</p>
                 </div>
             </div>
         </div>
